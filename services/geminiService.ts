@@ -1,6 +1,12 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const API_KEY = process.env.API_KEY || process.env.GEMINI_API_KEY || '';
+
+// Check if API is configured
+export const isApiConfigured = () => Boolean(API_KEY);
+
+// Only create client if API key exists
+const ai = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
 
 const SYSTEM_INSTRUCTION = `
 Eres un Nutricionista Deportivo de clase mundial y Fisiólogo del Ejercicio.
@@ -31,6 +37,9 @@ Responde siempre en español. Sé muy analítico con los números. Usa términos
 `;
 
 export const analyzeCase = async (prompt: string) => {
+  if (!ai) {
+    throw new Error('API_KEY_NOT_CONFIGURED');
+  }
   try {
     const model = 'gemini-2.5-flash';
     const response = await ai.models.generateContent({
@@ -49,6 +58,9 @@ export const analyzeCase = async (prompt: string) => {
 };
 
 export const getChatResponse = async (history: {role: string, parts: {text: string}[]}[], message: string) => {
+  if (!ai) {
+    throw new Error('API_KEY_NOT_CONFIGURED');
+  }
   try {
     const chat = ai.chats.create({
       model: 'gemini-2.5-flash',
@@ -57,7 +69,7 @@ export const getChatResponse = async (history: {role: string, parts: {text: stri
       },
       history: history
     });
-    
+
     const result = await chat.sendMessage({ message });
     return result.text;
   } catch (error) {

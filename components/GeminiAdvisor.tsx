@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Send, Bot, User, Sparkles } from 'lucide-react';
-import { getChatResponse } from '../services/geminiService';
+import { Send, Bot, User, Sparkles, AlertTriangle } from 'lucide-react';
+import { getChatResponse, isApiConfigured } from '../services/geminiService';
 import { ChatMessage } from '../types';
 
 export const GeminiAdvisor: React.FC = () => {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const apiConfigured = isApiConfigured();
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: 'model',
-      text: 'He revisado las gráficas de Garmin. Los números son reveladores: 20,921 pasos de media y 85km semanales de carrera confirman un gasto energético masivo. El problema NO es que coma mucho, es que probablemente no come lo suficiente para soportar esa carga, lo que eleva el cortisol y frena la pérdida de grasa. ¿Cómo te ayudo a estructurar su dieta?'
+      text: apiConfigured
+        ? 'He revisado las gráficas de Garmin. Los números son reveladores: 20,921 pasos de media y 85km semanales de carrera confirman un gasto energético masivo. El problema NO es que coma mucho, es que probablemente no come lo suficiente para soportar esa carga, lo que eleva el cortisol y frena la pérdida de grasa. ¿Cómo te ayudo a estructurar su dieta?'
+        : 'El asistente IA está deshabilitado. Para activarlo, configura la variable de entorno GEMINI_API_KEY en Vercel.'
     }
   ]);
 
@@ -84,18 +87,25 @@ export const GeminiAdvisor: React.FC = () => {
       </div>
 
       <div className="p-4 border-t border-slate-700 bg-slate-900/50 rounded-b-xl">
+        {!apiConfigured && (
+          <div className="mb-3 flex items-center gap-2 text-amber-400 text-xs bg-amber-900/20 p-2 rounded border border-amber-500/30">
+            <AlertTriangle size={14} />
+            <span>Chat deshabilitado. Configura GEMINI_API_KEY en las variables de entorno de Vercel.</span>
+          </div>
+        )}
         <div className="flex space-x-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-            placeholder="Pregunta sobre los 21k pasos, carga calórica, etc..."
-            className="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 placeholder-slate-500"
+            onKeyDown={(e) => e.key === 'Enter' && !loading && apiConfigured && handleSend()}
+            placeholder={apiConfigured ? "Pregunta sobre los 21k pasos, carga calórica, etc..." : "Chat deshabilitado - API key no configurada"}
+            disabled={!apiConfigured}
+            className="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed"
           />
           <button
             onClick={handleSend}
-            disabled={loading || !input.trim()}
+            disabled={loading || !input.trim() || !apiConfigured}
             className="bg-emerald-600 hover:bg-emerald-500 text-white p-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <Send size={20} />
