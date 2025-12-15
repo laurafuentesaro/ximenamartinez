@@ -184,7 +184,7 @@ const WEEKLY_PLAN: DayPlan[] = [
         kcal: 550
       },
       lunch: {
-        description: "ALMUERZO FAMILIAR: 200g Carne al Horno (Colita/Vacío) + 250g Papas/Boniatos/Calabaza asados + Ensalada con Aceite.",
+        description: "ALMUERZO: 200g Carne al Horno (Colita/Vacío) + 250g Papas/Boniatos/Calabaza asados + Ensalada con Aceite.",
         kcal: 900
       },
       snack: {
