@@ -142,7 +142,7 @@ const WEEKLY_PLAN: DayPlan[] = [
         kcal: 500
       },
       dinner: {
-        description: "150g Salmón/Atún grillado + Vegetales al vapor + 200g Papas al natural + Ensalada con Aceite Oliva.",
+        description: "150g Salmón/Atún a la plancha + Vegetales al vapor + 200g Papas al natural + Ensalada con Aceite Oliva.",
         kcal: 720
       }
     }
