@@ -46,7 +46,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({ patient }) =
           <InfoCard 
             title="Distancia Semanal" 
             value={`${patient.telemetry?.weeklyRunDistance} km`} 
-            subtitle="Volumen competitivo"
+            subtitle="Promedio semanal"
             icon={<Dumbbell size={20} />}
           />
           <InfoCard 
