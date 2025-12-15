@@ -228,7 +228,7 @@ export const PlanComparisons: React.FC = () => {
           <div className="bg-slate-900 p-3 rounded border border-slate-700">
             <div className="text-blue-400 font-bold text-xs uppercase mb-1">Vianda 11:30</div>
             <div className="text-white text-sm">Almuerzo Práctico</div>
-            <div className="text-slate-500 text-xs mt-1">Bowls completos que no requieren calentar.</div>
+            <div className="text-slate-500 text-xs mt-1">Bowls completos que no necesitan ser calentados.</div>
           </div>
           <div className="bg-slate-900 p-3 rounded border border-slate-700">
             <div className="text-emerald-400 font-bold text-xs uppercase mb-1">Martes/Jueves</div>
