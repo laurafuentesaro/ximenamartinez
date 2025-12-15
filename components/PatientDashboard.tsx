@@ -33,7 +33,7 @@ export const PatientDashboard: React.FC<PatientDashboardProps> = ({ patient }) =
           <InfoCard 
             title="Pasos Diarios" 
             value={patient.telemetry?.avgDailySteps?.toLocaleString() || "0"} 
-            subtitle="¡Nivel Extremadamente Alto!"
+            subtitle="Promedio diario"
             icon={<Footprints size={20} />}
             alert={true}
           />
