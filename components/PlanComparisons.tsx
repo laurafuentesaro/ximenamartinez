@@ -213,7 +213,7 @@ export const PlanComparisons: React.FC = () => {
           Horarios & Rendimiento
         </h3>
         <p className="text-slate-300 text-sm mb-4 leading-relaxed">
-          • <strong>Lunes y Jueves (Días Largos hasta 20hs):</strong> Merienda fuerte en el trabajo para no llegar "vacío" al final del día.
+          • <strong>Lunes y Jueves (Días Largos hasta 20hs):</strong> Merienda power para no llegar con hambre al final del día.
           <br/>
           • <strong>Martes y Jueves (Series 21km/h):</strong> Cena post-entreno con carga de carbohidratos para bajar cortisol y permitir la quema de grasa.
           <br/>
