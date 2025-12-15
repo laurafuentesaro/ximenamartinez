@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PatientDashboard } from './components/PatientDashboard';
-import { PlanComparisons } from './components/PlanComparisons';
 import { PatientData } from './types';
-import { Activity, FileText, LayoutDashboard } from 'lucide-react';
+import { Activity } from 'lucide-react';
 
 // Updated with real data from screenshots
 const patientData: PatientData = {
@@ -24,8 +23,6 @@ const patientData: PatientData = {
 };
 
 const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'plan'>('dashboard');
-
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-emerald-500/30">
       {/* Header */}
@@ -40,7 +37,7 @@ const App: React.FC = () => {
               <p className="text-xs text-slate-400">Análisis con Datos Reales (Garmin/Connect)</p>
             </div>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-6 text-sm">
             <div className="flex flex-col items-end">
               <span className="text-slate-300 font-medium">{patientData.name}</span>
@@ -52,49 +49,7 @@ const App: React.FC = () => {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        
-        {/* Navigation Tabs */}
-        <div className="flex space-x-1 bg-slate-900/50 p-1 rounded-xl mb-8 w-fit border border-slate-800">
-          <button
-            onClick={() => setActiveTab('dashboard')}
-            className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-              activeTab === 'dashboard' 
-                ? 'bg-slate-800 text-white shadow-sm' 
-                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-            }`}
-          >
-            <LayoutDashboard size={18} className="mr-2" />
-            Métricas
-          </button>
-          <button
-            onClick={() => setActiveTab('plan')}
-            className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-              activeTab === 'plan' 
-                ? 'bg-slate-800 text-white shadow-sm' 
-                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-            }`}
-          >
-            <FileText size={18} className="mr-2" />
-            Estrategia
-          </button>
-        </div>
-
-        {/* Tab Content */}
-        <div className="animate-fade-in">
-          {activeTab === 'dashboard' && (
-            <PatientDashboard patient={patientData} />
-          )}
-
-          {activeTab === 'plan' && (
-            <div className="space-y-6">
-              <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
-                <h2 className="text-xl font-bold text-white mb-2">Evaluación de la Estrategia</h2>
-                                <PlanComparisons />
-              </div>
-            </div>
-          )}
-
-        </div>
+        <PatientDashboard patient={patientData} />
       </main>
     </div>
   );
