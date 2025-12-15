@@ -155,7 +155,7 @@ const WEEKLY_PLAN: DayPlan[] = [
     macros: { protein: 115, carbs: 520, fat: 70 },
     meals: {
       breakfast: {
-        description: "PRE-LARGO (7:00 AM): 4 Tostadas Pan Integral con Miel + 2 Bananas + Mate cocido. (Carbos de fácil absorción).",
+        description: "PRE-LARGO (7:00 AM): 4 Tostadas Pan Integral con Miel + 2 Bananas + té verde o café frío. (Carbos de fácil absorción).",
         kcal: 700
       },
       lunch: {
