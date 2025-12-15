@@ -138,7 +138,7 @@ const WEEKLY_PLAN: DayPlan[] = [
         kcal: 780
       },
       snack: {
-        description: "18:30 HS: Sándwich DOBLE de Pan Integral con 100g Pollo y Tomate + 1 Yogurt bebible.",
+        description: "18:30 HS: 2 Sándwiches de Pan Integral con 100g Pollo y Tomate + 1 Yogurt bebible.",
         kcal: 500
       },
       dinner: {
