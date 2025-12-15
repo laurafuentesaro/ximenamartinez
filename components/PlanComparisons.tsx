@@ -215,7 +215,7 @@ export const PlanComparisons: React.FC = () => {
         <p className="text-slate-300 text-sm mb-4 leading-relaxed">
           • <strong>Lunes y Jueves (Días Largos hasta 20hs):</strong> Merienda power para no llegar con hambre al final del día.
           <br/>
-          • <strong>Martes y Jueves (Series 21km/h):</strong> Cena post-entreno con carga de carbohidratos para bajar cortisol y permitir la quema de grasa.
+          • <strong>Martes y Jueves (Series 21km/h):</strong> Cena post-entrenamiento con carga de carbohidratos para bajar cortisol y permitir la quema de grasa.
           <br/>
           • <strong>Viandas (11:30 - 14:30):</strong> Todas las opciones de almuerzo están pensadas para comerse frías (Poke Bowls, Ensaladas de Pasta/Lentejas).
         </p>
