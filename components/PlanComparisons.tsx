@@ -336,7 +336,7 @@ export const PlanComparisons: React.FC = () => {
                   <span className="text-amber-400 text-xs font-bold bg-amber-900/30 px-2 py-0.5 rounded">{currentPlan.meals.breakfast.kcal} kcal</span>
                 </div>
                 <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
-                  <p className="text-slate-200">{currentPlan.meals.breakfast.description}</p>
+                  <p className="text-white">{currentPlan.meals.breakfast.description}</p>
                 </div>
               </div>
             </div>
