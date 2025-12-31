@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
       <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-theme-text font-semibold text-sm tracking-tight">
-            Ximena
+            Samuel Sämano
           </span>
           <span className="text-theme-muted">/</span>
           <span className="text-theme-secondary text-sm">

@@ -3,7 +3,7 @@ import { DaySelector } from './DaySelector';
 import { CaloriesSummary } from './CaloriesSummary';
 import { MealTimeline } from './MealTimeline';
 import { ScheduleCard } from './ScheduleCard';
-import { WEEKLY_PLAN } from '../data/weeklyPlan';
+import { WEEKLY_PLAN } from '../../data/weeklyPlan';
 
 export const PlanComparisons: React.FC = () => {
   const [selectedDayIndex, setSelectedDayIndex] = useState(0);
@@ -11,26 +11,26 @@ export const PlanComparisons: React.FC = () => {
 
   const scheduleItems = [
     {
-      time: 'Mañana',
-      title: 'Desayuno Keto',
-      description: 'Huevos, Palta, Proteina - Alto en grasas saludables',
+      time: '06:20 / 07:20',
+      title: 'Desayuno Energetico',
+      description: 'Yogurt, Avena hidratada, Fruta o Tostadas',
     },
     {
-      time: '13:00',
-      title: 'Entrenamiento Pesas',
-      description: 'Lun-Vie: Tren Inferior / Tren Superior alternado',
+      time: '11:30 - 14:30',
+      title: 'Almuerzo Practico',
+      description: 'Bowls completos que no necesitan ser calentados',
     },
     {
-      time: 'Noche',
-      title: 'Cena Ligera',
-      description: 'Proteina + vegetales, bajo en carbos para dormir mejor',
+      time: 'Mar/Jue',
+      title: 'Calidad + Recuperacion',
+      description: 'Pre-entreno con cafeina fria y Cena con carbos',
     },
   ];
 
   const meals = [
     { label: 'Desayuno', description: currentPlan.meals.breakfast.description, kcal: currentPlan.meals.breakfast.kcal },
-    { label: 'Almuerzo', description: currentPlan.meals.lunch.description, kcal: currentPlan.meals.lunch.kcal },
-    { label: 'Snack (Opcional)', description: currentPlan.meals.snack.description, kcal: currentPlan.meals.snack.kcal },
+    { label: 'Almuerzo (Vianda)', description: currentPlan.meals.lunch.description, kcal: currentPlan.meals.lunch.kcal },
+    { label: 'Merienda / Pre-Entreno', description: currentPlan.meals.snack.description, kcal: currentPlan.meals.snack.kcal },
     { label: 'Cena', description: currentPlan.meals.dinner.description, kcal: currentPlan.meals.dinner.kcal },
   ];
 

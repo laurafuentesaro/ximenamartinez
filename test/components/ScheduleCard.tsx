@@ -13,6 +13,14 @@ interface ScheduleCardProps {
 export const ScheduleCard: React.FC<ScheduleCardProps> = ({ items }) => {
   return (
     <div className="bg-theme-card border border-theme-border rounded-lg overflow-hidden transition-colors">
+      <div className="px-5 py-4 border-b border-theme-border">
+        <h3 className="text-sm font-medium text-theme-text">
+          Horarios y Rendimiento
+        </h3>
+        <p className="text-xs text-theme-faint mt-1">
+          Estructura diaria optimizada para tu rutina
+        </p>
+      </div>
       <div className="divide-y divide-theme-border">
         {items.map((item, idx) => (
           <div key={idx} className="px-5 py-4 hover:bg-theme-elevated transition-colors">
