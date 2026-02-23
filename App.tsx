@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PlanComparisons } from './components/PlanComparisonsNew';
+import { ShoppingList } from './components/ShoppingList';
+import { ViewToggle, type ViewMode } from './components/ViewToggle';
 import { Header } from './components/Header';
 import { ThemeProvider } from './ThemeContext';
 
 const AppContent: React.FC = () => {
+  const [view, setView] = useState<ViewMode>('plan');
+
   return (
     <div className="min-h-screen bg-theme-bg text-theme-text selection:bg-theme-accent/10 transition-colors duration-200">
       <Header />
@@ -17,7 +21,8 @@ const AppContent: React.FC = () => {
               Plan semanal personalizado basado en tu entrenamiento
             </p>
           </div>
-          <PlanComparisons />
+          <ViewToggle active={view} onChange={setView} />
+          {view === 'plan' ? <PlanComparisons /> : <ShoppingList />}
         </div>
       </main>
     </div>
